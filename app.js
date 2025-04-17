@@ -2,16 +2,20 @@ const express = require(`express`);
 const app = express();
 const port = 3000;
 
+const Posts = require(`./posts.js`);
 
-const posts = require(`./posts.js`);
+const postsRouter = require(`./routers/router-post.js`)
 
 app.use(express.static(`public`));
 
+app.use('/posts', postsRouter);
+
 app.get('/', (req, res) => {
-    console.log(`Hello World!`);
-    res.json(posts);
+    res.json(routerPosts);
 })
 
+app.get('/posts', postsRouter);
+
 app.listen(port, () => {
-    console.log(`banana`)
+    console.log(`Il server è in ascolto`)
 })
