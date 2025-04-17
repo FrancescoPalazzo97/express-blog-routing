@@ -24,17 +24,29 @@ router.post('/', (req, res) => {
 
 // UPDATE
 router.put('/:id', (req, res) => {
-    res.send(`L'elemento ${req.params.id} è stato totalmente modificato`);
+    let id = req.params.id;
+    id >= 0 && id <= posts.length ? // Se il valore di req.params.id è compreso tra 0 e posts.length
+        res.send(`L'elemento ${id} è stato totalmente modificato`)
+        : // Altrimenti
+        res.send(`Il valore inserito non è valido`) // Restituisco un messaggio di errore
 })
 
 // MODIFY
 router.patch('/:id', (req, res) => {
-    res.send(`L'elemento ${req.params.id} è stato parzialmente modificato`);
+    let id = req.params.id;
+    id >= 0 && id <= posts.length ? // Se il valore di req.params.id è compreso tra 0 e posts.length
+        res.send(`L'elemento ${id} è stato parzialmente modificato`)
+        : // Altrimenti
+        res.send(`Il valore inserito non è valido`) // Restituisco un messaggio di errore
 })
 
 // DESTROY
 router.delete('/:id', (req, res) => {
-    res.send(`L'elemento ${req.params.id} è stato eliminato`);
+    let id = req.params.id;
+    id >= 0 && id <= posts.length ? // Se il valore di req.params.id è compreso tra 0 e posts.length
+        res.send(`L'elemento ${req.params.id} è stato eliminato`)
+        : // Altrimenti
+        res.send(`Il valore inserito non è valido`) // Restituisco un messaggio di errore
 })
 
 // ESPORTAZIONE ROUTER
