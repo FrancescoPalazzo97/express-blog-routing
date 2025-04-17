@@ -1,16 +1,21 @@
 const express = require('express');
 const router = express.Router();
 
+const posts = require(`../posts`);
+
 // INDEX
 router.get('/', (req, res) => {
-    res.send(`Lista post`);
+    res.json(posts); // Restituisco i post in formato JSON
 })
 
 // SHOW
 router.get('/:id', (req, res) => {
-    res.send(`Ecco il post ${req.params.id}`);
+    let id = req.params.id;
+    id >= 0 && id <= posts.length ?
+        res.json(posts[req.params.id - 1]) // Se il valore di req.params.id è compreso tra 0 e posts.length allora restituisco il singolo elemento
+        : // Altrimenti
+        res.send(`Il valore inserito non è valido`) // Restituisco un messaggio di errore
 })
-
 
 // STORE
 router.post('/', (req, res) => {

@@ -12,7 +12,7 @@ app.use('/posts', postsRouter); // Utilizzo postsRouter per impostare le rotte
 
 // Rotta base
 app.get('/', (req, res) => {
-    res.json(posts); // Restituisco i post in formato JSON
+    res.send(`Benvenuto`) // Messaggio di benvenuto
 })
 
 app.listen(port, () => {
