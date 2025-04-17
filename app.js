@@ -14,8 +14,6 @@ app.get('/', (req, res) => {
     res.json(routerPosts);
 })
 
-app.get('/posts', postsRouter);
-
 app.listen(port, () => {
     console.log(`Il server è in ascolto`)
 })
